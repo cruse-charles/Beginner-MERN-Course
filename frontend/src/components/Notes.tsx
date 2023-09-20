@@ -1,15 +1,19 @@
 import { Card } from "react-bootstrap";
 import { Note as NoteModel } from "../models/notes";
+import styles from "../styles/Note.module.css";
 
 interface NoteProps {
   note: NoteModel;
 }
 
 const Note = ({ note }: NoteProps) => {
+  const { title, text, createdAt, updatedAt } = note;
+
   return (
-    <Card>
+    <Card className={styles.noteCard}>
       <Card.Body>
-        <Card.Title>{note.title}</Card.Title>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text className={styles.noteCard}>{text}</Card.Text>
       </Card.Body>
     </Card>
   );
