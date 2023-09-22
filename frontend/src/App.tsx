@@ -43,6 +43,10 @@ function App() {
       </Row>
       {showAddNoteDialog && (
         <AddNoteDialoge
+          onNoteSaved={(newNote) => {
+            setShowAddNoteDialog(false);
+            setNotes([...notes, newNote]);
+          }}
           onDismiss={() => {
             setShowAddNoteDialog(false);
           }}
